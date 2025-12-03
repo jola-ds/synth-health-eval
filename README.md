@@ -51,8 +51,10 @@ missing values. **MICE** won with the lowest distribution shift.
 2. **Generator Screening:** We trained and compared Gaussian Copula
 (Statistical) and CTGAN (Deep Learning).
 
-3. **The "Master Loop":** We ran a **Repeated Stratified K-Fold
-Cross-Validation (5x5)** to evaluate models under four scenarios:
+<!-- markdownlint-disable MD029 -->
+3. **The "Master Loop":** We ran a **Repeated Stratified K-Fold Cross-Validation
+(5x5)** to evaluate models under four scenarios:
+
 * *Scenario A (Baseline):* Train Real, Test Real.
 * *Scenario B (Fidelity):* Train Synthetic, Test Real.
 * *Scenario C (Scale):* Train Large Synthetic, Test Real.
@@ -60,6 +62,7 @@ Cross-Validation (5x5)** to evaluate models under four scenarios:
 
 4. **Fidelity Audit:** We used KS Tests, Correlation Matrices, and Adversarial
 AUC to quantify the statistical quality of the synthetic data.
+<!-- markdownlint-enable MD029 -->
 
 > **Note:** *For a full picture of our methodology , read the full [Analysis
 Approach](2_data_analysis/methodology.md).*
@@ -90,18 +93,7 @@ Report](2_data_analysis/analysis_report.md).*
 
 ---
 
-## Confidence & Limitations
-
-### Confidence Level: High
-
-* **Robustness:** Results are based on **25 independent runs** (5 folds x 5
-repeats), minimizing random chance.
-* **Consistency:** The "Inverted U" curve in augmentation performance was
-consistent across multiple tests.
-* **Validation:** Fidelity metrics (KS=0.92, Correlation=0.89) strongly support
-the utility findings.
-
-### Limitations
+## Limitations
 
 * **Sample Size:** The original dataset is very small (N=134). While this makes
 the augmentation result impressive, it limits the complexity of models we can
@@ -114,7 +106,7 @@ dataset and may not transfer 1:1 to other domains (e.g., imaging).
 
 ---
 
-## 🚀 Future Research
+## Future Research
 
 1. **Bayesian Networks:** Manually defining causal edges (e.g., `Age ->
 Hypertension`) could improve fidelity beyond the Copula by enforcing known
@@ -142,7 +134,7 @@ etc.).
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -166,7 +158,7 @@ etc.).
 
 ---
 
-## 💻 Usage
+## Usage
 
 ### 1. Reproduce the Analysis
 
@@ -197,15 +189,7 @@ synthetic_data = gen.sample(100)
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE)
 file for details.
-
----
-
-## ✍️ Citation
-
-If you use this work, please cite:
-> Omotunde, M. (2025). *Synthetic Data Augmentation for Geriatric Health in
-Nigeria*.
