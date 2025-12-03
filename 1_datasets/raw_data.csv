@@ -1,0 +1,136 @@
+date_of_visit,age,gender,symptoms,History,status,pulse_rate(b/m),blood_pressure,rapid_diagnostic_test,weight(kg),height(m)
+2023-01-11,80,Female,Knee joint pain; Waist pain; General body pain; Headache; Dizziness,Hx of Hypertension,Hypertension,84,160/96,,,1.50m
+2023-01-16,84,Male,Back pain,,,86,152/80,,,
+2023-01-18,72,Female,Hand pain; Neck pain,,Hypertension,94,163/88,negative,,
+2023-01-23,61,Male,Waist pain; Numb legs,,,71,120/91,,,1.62m
+2023-02-01,69,Female,Had malaria symptoms 4 days ago,Hx of Hypertension,Hypertension,114,136/74,,,
+2023-02-01,75,Male,Body pain; Sleeplessness,,,70,113/66,,,1.65m
+2023-02-13,82,Female,Abdominal pain,,,86,136/85,,,
+2023-02-13,80,Male,Leg pain,No Hx of Hypertension,Hypertension,72,169/101,,,
+2023-02-15,67,Female,Chest pain; Headache; Chills; Body pain; Fever; Abdominal pain,,,85,106/100,positive,,
+2023-02-27,80,Female,Hx of High Blood Sugar,,,124,108/74,,,
+2025-03-29,69,Female,,Hx of Hypertension,,80,112/81,,,
+2023-04-26,57,Female,,,,,155/83,,,
+2023-04-27,75,Female,Body pain; Joint pain; Fever; Cough,,,91,112/67,positive,,
+2023-05-03,75,Female,Fever; Headache,Hx of Hypertension,Hypertension,86,151/94,negative,,
+2023-05-03,70,Female,Abdominal pain,,,,,,,
+2023-05-08,60,Female,Heartburn; Burning sensations in the body; Headache,,,72,139/103,,,
+2023-05-10,62,Male,Headache; Body pain; Joint pain; Fever,Hx of Hypertension,Hypertension,76,150/86,,,
+2023-06-27,70,Male,,Hx of Hypertension,Hypertension,111,168/96,,,
+2023-06-26,80,Female,Cough; Body itch,,Hypertension,91,165/96,1.6m,,
+2023-06-21,65,Female,Fever; Muscle spasm in legs; Headache; Waist pain; Back pains; Weight loss,,Hypertension,,180/90,negative,,1.5m
+2023-06-21,75,Female,Back pain; Burning sensation in back; Numb in hands,Hx of Hypertension,Hypertension,,148/105,,,1.5m
+2023-06-14,70,Female,Headaches; Body pain; Knee joint pain; Fever; Fatigue,Hx of Hypertension,Hypertension,,140/90,negative,,
+2023-07-10,,,Headaches; Body pains; Fever; Abd discomfort,,,,127/83,positive,,
+2024-06-26,,,Pains at the left leg,,,48,107/43,,48kg,1.55m
+2023-07-10,63,Female,Skin rashes; Body Itchi; Headaches; Fever,,Hypertension,75,168/85,negative,,1.60m
+2023-07-31,62,Female,Thigh pain; Headache; Chest Palpitation,Hx of Hypertension,Hypertension,80,155/75,,,
+2023-07-10,70,Female,,Hx of Hypertension,Hypertension,,175/122,,,1.5m
+2023-07-27,59,Female,Body pain; Joint pain; Back pain; Headache; Cough; Catarrh; Fever;  Asthma,,,96,134/82,positive,,1.55m
+2023-07-10,61,Female,,Hx of Hypertension,Hypertension,86,162/84,,,
+2023-08-31,75,Female,Cold; Catarrh; Headaches; Chills; Fever,Hx of Hypertension,Hypertension,82,105/64,negative,,1.53m
+2023-09-13,81,Female,Insomnia; Fever; Chills,Hx of Hypertension,,60,107/88,negative,65kg,1.48m
+,68,Female,Peptic ulcer; Dizziness; Headaches,Hx of Hypertension,Hypertension,81,151/85,,,
+2023-08-28,74,Female,Back Pain,,Hypertension,,,,,
+2023-08-09,67,Female,Body pain; Muscle spasm; Numbness; Headache; Chills; Fever,,,70,115/72,negative,,1.55m
+2025-08-11,52,Female,Dizziness,,Hypertension,75,140/90,,84kg,1.50m
+2023-08-09,73,Female,Numbness; Muscle spasm; Leg pain,,,61,113/61,,,
+2023-08-16,70,Female,Body pain; Headache,Hx of Hypertension,Hypertension,113,166/77,,,1.55m
+2023-08-28,80,Female,,,Hypertension,91,178/98,,,
+2023-08-14,85,Male,,Hx of Hypertension,Hypertension,96,173/74,positive,,
+2023-09-04,64,Female,Headache; Fever; Fatigue; Chest palpitation,,Hypertension,66,133/76,negative,,1.65m
+2023-09-04,64,Female,Back pain; Knee joint pain,,,85,116/74,,,
+2023-09-19,53,Female,Leg pain; Cough; Fever; Headache,,,89,138/97,negative,59kg,1.5m
+2023-10-04,73,Female,Fever; Chills; Body pain; Joint pain,,,92,126/60,positive,40kg,1.5m
+2023-10-09,68,Female,Insomnia; Headaches; Dry mouth,,,94,111/76,,49kg,1.55m
+2023-10-01,66,Female,Fatigue; Body pain; Joint pain,,Hypertension,79,145/74,,71kg,1.65m
+2023-10-16,75,Male,Cough; Sore throat; Leg pain,,Hypertension,85,145/92,,54kg,1.8m
+2023-10-18,63,Male,Dizziness,,Hypertension,91,168/95,,60kg,1.65m
+2023-11-06,60,Female,Waist pain; legs pains; fatigue; Headaches,,,109,117/102,,76kg,1.55m
+2023-11-29,59,Female,Generalised body pains; Headaches; back pains; Cough; catarrh,,,89,110/69,negative,48kg,1.50m
+2023-11-20,50,Female,Body Itch; Skin rashes; Headache; Catarrh,,,95,102/77,,84kg,1.65m
+2023-11-27,72,Female,Headaches; Body pains; Back pain; Waist pain; Diabetes,Hx of Hypertension,,83,140/87,,80kg,1.65m
+2023-11-27,63,Female,Skin rash,Hx of Hypertension,Hypertension,71,118/74,,44kg,1.55m
+2023-12-20,78,Female,General body pains; Joint pains,No Hx of Hypertension,,66,142/75,,49kg,1.50m
+2023-12-04,64,Female,PUD; Body pains; fatigue,Hx of Hypertension,,64,110/76,,48kg,1.60m
+2024-01-08,55,Female,Fever; Headaches,,,78,145/90,positive,48kg,1.50m
+2024-01-24,79,Female,Abdominal discomfort,,Hypertension,77,172/92,,40kg,1.50cm
+2024-01-22,65,Male,Foot pain,,,74,139/91,,56kg,1.78cm
+2024-01-29,79,Female,waist pain; joint pain; knee pain; Sleepiness; Polyuria,,,73,218/107,,78kg,1.70m
+2024-01-15,73,Female,Pain at the left leg; Body pains; Dizziness,,Hypertension,70,149/78,,59kg,1.40m
+2024-01-08,65,Female,General body pains,Hx of Hypertension,Hypertension,105,165/90,,86kg,1.50cm
+2024-02-07,75,Female,Pains at the left hand,,,83,105/57,,48kg,1.65cm
+2024-02-07,70,Female,Pains at the right leg,,,66,112/57,,44kg,1.50cm
+,,,Hx of Hypertension; Headaches; fatigue,Hx of Hypertension,Hypertension,103,157/93,,83kg,1.57m
+2023-02-07,71,Female,Pains at the right leg,,,71,100/73,,58kg,1.55cm
+2024-02-28,72,female,Hx of hypertension,Hx of Hypertension,,87,145/78,,59kg,1.55m
+2024-02-14,73,Female,Body pains; knee pain; Back pains,,,73,101/65,,57kg,1.55m
+2024-02-26,46,Female,Check-up,,,81,85/56,,65kg,
+2024-02-19,58,Female,Hx of hypertension; Pain at the left leg; fatigue,Hx of Hypertension,Hypertension,87,173/110,,68kg,
+2024-02-28,80,Female,Pains at the left leg,,Hypertension,93,158/96,,69kg,1.50cm
+2024-03-20,56,Female,Leg pains; tingling sensation in the legs,,,82,129/84,,59kg,1.55m
+2024-03-18,69,Male,Pain at the lower part of the left abdomen; tenderness; Hx of Hypertension,Hx of Hypertension,,90,154/83,,,
+2024-03-20,69,Female,Pain at the buttocks,,,92,151/86,,49kg,1.60m
+2024-03-19,72,Male,Haemorrhage,,,76,132/79,,55kg,1.70m
+2024-03-13,60,Female,knee joint pains; Ankle pains; Hx of Hypertension,Hx of Hypertension,Hypertension,83,175/112,,82kg,1.50m
+2024-03-19,70,Female,,,Hypertension,77,173/80,,44kg,1.50m
+2024-03-20,69,Female,fatigue; Movement feelings in legs; Muscle Spasm; Sleepiness,,,66,92/67,,45kg,1.55m
+2024-03-20,72,Female,Chest Palpitation; knee joint pains; Hx of Hypertension,Hx of Hypertension,Hypertension,75,150/88,,78kg,1.50m
+2024-04-15,75,female,Generalized body pains; Heaviness feelings in legs; Fever,,,81,127/97,,52kg,1.6m
+2024-04-29,72,female,Pain at the left leg,,Hypertension,79,168/95,,45kg,1.60m
+2024-04-17,68,Female,Headaches; Fever; Pain at left side of the leg; Cough x 2/52,,,84,119/96,negative,46kg,
+2024-04-08,80,Female,Hx of Hypertension and Diabetic; Fever; Body pain; joint pains,Hx of Hypertension,,81,123/77,,,
+2024-04-22,67,Female,Hx of hypertension; Numbness feelings at the right side of the body; No Sensitivity at the right side,Hx of Hypertension,Hypertension,97,192/117,,,
+2024-04-15,56,Female,Generalized body pains; Headaches; fever; back pains; loss of weight recently,,,81,123/94,negative,54kg,1.60m
+2024-04-24,67,Female,Pain at the waist; pain in the legs; Hx of Hypertension,Hx of Hypertension,Hypertension,76,153/78,,80kg,1.70m
+2024-04-15,72,Male,Stooling x 1/52; fever; Abdominal discomfort,,,,,positive,47kg,1.70m
+2024-04-03,74,female,Pain at the buttocks ; thigh pain; pain in the; fatigue; No hx of hypertension,Hx of Hypertension,,87,110/68,,52kg,1.60m
+2024-05-27,68,female,Headaches; fatigue; knee joint pains; cough for 2 wks,,,76,119/87,,53kg,1.55m
+2024-05-15,76,female,Pain at the left hand; no hx of Hypertension,No hx of Hypertension,,74,130/88,,55kg,1.55m
+2024-05-15,79,female,Headaches; Cold; Catarrh; fever; numbness feelings in legs,,,74,131/74,negative,48kg,1.55m
+2024-05-20,76,female,Headaches; Pain at the head; Waist pain; legs pains; fever; Hx of hypertension,Hx of Hypertension,Hypertension,95,113/73,negative,36kg,
+2024-05-08,60,female,Cough; Joint pain; Chest pain at the back; Hx of PUD,,,75,136/88,,69kg,1.65cm
+2024-05-22,46,female,Chest pain; Insomnia; Numbness feelings in legs; Muscle spasm; Headaches; Chest palpitation,,Hypertension,84,144/102,,92kg,1.80m
+2024-05-07,79,Male,Pain at the left hip joint,,Hypertension,65,168/73,,48kg,1.70m
+2024-06-24,60,female,Generalize cold pain; Cough; catarrh; Fever,,,74,147/81,negative,50kg,1.60m
+2024-06-10,69,,Hx of Hypertension,Hx of Hypertension,Hypertension,77,185/89,,73kg,1.45m
+2024-06-26,64,female,,,Hypertension,52,147/77,,92kg,1.50cm
+2024-06-05,62,female,,,Hypertension,,,,59kg,1.65cm
+2024-06-24,70,female,Headaches; Body pain; Abdominal pain; Body pains; Fever,,,83,115/59,negative,38kg,1.50cm
+2024-06-19,60,male,Body Pain; headaches; Fever; Dizziness,,,78,114/73,positive,57kg,1.60cm
+2024-07-22,70,male,Numbness feelings in legs; Back pains; Burning Sensation in the leg; light Headedness,,,101,130/77,negative,46kg,1.50m
+2024-07-29,68,female,hand pain; leg pain,,,81,142/93,,59kg,1.55m
+2024-07-24,70,female,Had a fall while trying to get down from a vehicle...Swollen right feet with a slight wound; Had an Hx of Hypertension,Hx of Hypertension,Hypertension,105,122/70,,81kg,1.55m
+2024-07-01,60,female,Colored Urine; Headaches; fever; COLD; pain at the right leg,,,62,125/70,positive,65kg,1.65cm
+2024-07-17,72,female,body Itching,,,57,146/65,,85kg,1.65m
+2024-07-03,59,female,Generalized body pain; Chills; cold; Colored Urine; fever,,,61,110/76,negative,78kg,1.55m
+2024-07-03,76,female,Hx of hypertension; Headaches; chills; fever,Hx of Hypertension,Hypertension,111,146/89,negative,77kg,1.65m
+2024-08-12,75,male,Frequent and excessive Urination; Insomnia,,,55,124/66,,63kg,1.70m
+2024-08-26,57,female,Cold feet and hands; Productive cough; Phlegm; Sore throat,,,83,132/87,negative,50kg,1.60m
+2024-08-19,81,male,Body pain; Pains at the legs; Headaches; Hx of Hypertension; Constipation,Hx of Hypertension,,77,139/76,,62kg,1.75m
+2024-08-21,67,female,Generalised body pains; Headaches; fever,,,78,121/100,,62kg,1.55m
+2024-08-07,65,female,Chills; Cold; Headaches; Body pain; joint pains; fever,,,98,148/107,negative,69kg,1.50m
+2024-09-23,64,female,Excessive sweat; fatigue; Chills; cold; fever; Hx of Hypertension,Hx of Hypertension,Hypertension,,160/100,positive,65kg,1.55cm
+2024-09-25,62,female,Back pain; Pain at the two legs; Hx of hypertension,Hx of Hypertension,Hypertension,89,163/103,,65kg,1.55cm
+2024-09-25,69,female,Body pain; joint pains; knee joint pains; Body itching; fever,,,87,141/75,negative,55kg,
+2024-09-09,80,female,Fatigue; Excessive Urination,,Hypertension,64,186/86,,59kg,
+2024-09-23,75,female,Pain on the head; Fever; chills; Cold feet; Hx of hypertension,Hx of Hypertension,Hypertension,,160/100,positive,69kg,1.50m
+2024-09-30,75,male,Colored Urine; fever; Body pain; joint pains; cough; cold,,,92,118/80,positive,65kg,1.70m
+2024-09-23,1964,male,Fatigue; Weakness; Body pains; Back pains,,Hypertension,,160/100,,66kg,1.70m
+2024-10-02,70,female,Muscle Spasm; Numbness in both legs,,,,137/93,,62kg,1.65m
+2024-10-21,75,female,Pain at the left arm; Sleepiness,,Hypertension,101,236/121,,41kg,1.50m
+2024-10-02,60,female,Episodes of fainting for the past 2 months; Hx of Hypertension; Headaches; Colored Urine; Fever,Hx of Hypertension,,,143/83,,42kg,1.50m
+2024-10-09,59,Female,Hx of Hypertension,Hx of Hypertension,Hypertension,95,186/107,,83kg,1.65m
+2024-05-16,70,female,PolyUria; Hand tremor; Dehydration,,,59,160/65,,46kg,1.60m
+2024-11-06,85,female,Back pain; knee joint pains; Hx of Hypertension,Hx of Hypertension,Hypertension,87,162/85,,82kg,1.65m
+2024-11-04,81,female,Pain on the heels,,Hypertension,72,156/96,,46kg,1.50m
+2024-11-25,75,female,Hx of Asthma; Had an asthmatic attack 5 days ago; Also hx of hypertension; fatigue; weakness,Hx of Hypertension,,90,146/90,,48kg,1.55m
+2024-11-11,66,female,Back pains; Pain in the two hands; Slight Headaches; Hx of Hypertension,Hx of Hypertension,,90,130/88,,54kg,1.40m
+2024-11-27,72,female,Pain at the two legs; Stiffness; Numbness of the fingers,,Hypertension,75,112/60,,71kg,1.55m
+2024-12-12,1954,female,Pain at the waist; Pain in the leg; Pains on the two hands; Hx of hypertension,Hx of Hypertension,Hypertension,88,169/90,,70kg,1.45m
+2024-12-02,1971,female,Hx of Hypertension; Numbness; leg pain; Headaches,Hx of Hypertension,Hypertension,75,201/97,,,
+2024-12-16,74,female,Stomach pain; Cold; body pains,,,72,115/86,neg,83kg,1.55cm
+,1964,female,General body Pains,,Hypertension,82,202/100,,,
+2024-12-18,68,female,Body pains,,Hypertension,94,170/100,,44kg,1.50cm
+2024-12-11,1958,female,Body pain; sleepiness; Hx of hypertension,Hx of Hypertension,Hypertension,88,188/94,,58kg,1.55m
+2024-12-16,70,female,Body weakness; fatigue,,Hypertension,72,173/78,,48kg,1.55cm
