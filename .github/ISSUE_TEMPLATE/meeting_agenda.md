@@ -51,7 +51,7 @@ research
 - **Martha:** Updated assigned tasks on data preprocessing
 and outlined key keywords  
 - **Muqadsa:** Focused on synthetic data generation  
-- **Jola:** Edited raw data into clean and well-organized CSV  
+- **Jola:** Edited raw data into clean and well-organized CSV 
 
 ### Next Steps
 
