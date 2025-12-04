@@ -1,9 +1,9 @@
-import pandas as pd
 import numpy as np
-from sdv.single_table import GaussianCopulaSynthesizer, CTGANSynthesizer
+import pandas as pd
 from sdv.metadata import SingleTableMetadata
-from sklearn.preprocessing import MinMaxScaler
+from sdv.single_table import CTGANSynthesizer, GaussianCopulaSynthesizer
 from sklearn.neighbors import NearestNeighbors
+from sklearn.preprocessing import MinMaxScaler
 
 
 class GeneratorWrapper:

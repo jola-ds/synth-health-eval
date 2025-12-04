@@ -1,9 +1,9 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 from scipy.stats import ks_2samp
-from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import LabelEncoder
 from src.generation import train_generator
 
 

@@ -1,14 +1,14 @@
-import pandas as pd
 import numpy as np
-from sklearn.model_selection import RepeatedStratifiedKFold, RandomizedSearchCV
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
-from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import RandomizedSearchCV, RepeatedStratifiedKFold
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from src.generation import train_generator
+from xgboost import XGBClassifier
 
 # Define Predictors and their Hyperparameter Grids
 PREDICTORS = {
