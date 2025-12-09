@@ -102,9 +102,13 @@ def save_imputed_data(df, output_path):
 
 
 if __name__ == "__main__":
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, ".."))
+
     # Load data
-    input_path = "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/1_datasets/encoded_data.csv"
-    output_path = "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/1_datasets/imputed_data.csv"
+    input_path = os.path.join(project_root, "1_datasets", "encoded_data.csv")
+    output_path = os.path.join(project_root, "1_datasets", "imputed_data.csv")
 
     df = load_data(input_path)
 

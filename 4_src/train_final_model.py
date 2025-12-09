@@ -110,12 +110,12 @@ def train_final_model(data_path, params_path, output_model_path):
 
 
 if __name__ == "__main__":
-    data_path = "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/1_datasets/imputed_data.csv"
-    params_path = (
-        "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/results_params.csv"
-    )
-    output_model_path = (
-        "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/final_model_rf.pkl"
-    )
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, ".."))
+    
+    data_path = os.path.join(project_root, "1_datasets", "imputed_data.csv")
+    params_path = os.path.join(project_root, "results_params.csv")
+    output_model_path = os.path.join(project_root, "final_model_rf.pkl")
 
     train_final_model(data_path, params_path, output_model_path)
