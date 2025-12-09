@@ -10,10 +10,6 @@ evaluation pipeline.
 * **`imputation.py`**: Implements the "Imputation Shootout". Contains classes
 for MICE, KNN, and MissForest imputation, along with evaluation logic to select
 the best method.
-* **`check_outliers.py`**: Utility script to detect and summarize outliers in
-the dataset using the IQR method.
-* **`visualize_data.py`**: Generates exploratory visualizations (scatter plots,
-heatmaps) for the dataset documentation.
 
 ### 2. Generation
 
@@ -31,6 +27,7 @@ scores (univariate shape), Correlation Matrix differences (multivariate
 structure), and Discriminator AUC (adversarial realism).
 * **`analysis.py`**: Aggregates raw results from the Master Loop into summary
 tables (Mean/Std). Handles both Gaussian Copula and CTGAN results automatically.
+* **`feature_importance.py`**: Performs feature importance analysis using SHAP values.
 
 ### 4. Production
 
@@ -40,8 +37,7 @@ a pickle file.
 
 ## Usage
 
-These modules are designed to be imported by the notebooks in `3_notebooks/` or
-run directly for specific tasks.
+These modules are designed to be run directly for specific tasks.
 
 Example:
 
