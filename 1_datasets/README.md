@@ -171,12 +171,12 @@ source text.
 * **Notebook:**
 [notebooks/01_preprocessing_and_imputation.ipynb](../notebooks/01_preprocessing_and_imputation.ipynb)
 * **Process:**
-* **Dropping Columns:** Removed irrelevant columns (e.g., Rapid Diagnostic
+* **Dropped Columns:** Removed irrelevant columns (e.g., Rapid Diagnostic
 Tests) not needed for the study.
-* **Standardization:** Standardized categorical columns (e.g., Gender).
+* **Standardized Columns:** Standardized categorical columns (e.g., Gender).
 * **Splitting BP:** Split blood pressure into two separate variables:
 `systolic_bp` and `diastolic_bp`.
-* **Encoding:** Encoded categorical variables (e.g., History: Present=1,
+* **Encoded Columns:** Encoded categorical variables (e.g., History: Present=1,
 Absent=0, Missing=-1).
 * **Outlier Detection:** IQR-based analysis.
 
