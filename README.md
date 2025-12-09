@@ -11,7 +11,9 @@ and safe modelling?**
 data generated from a small (N=134) real-world clinical dataset of geriatric
 patients in Ibadan, Nigeria.
 
-**Result:** This research demonstrates that for small, specialized clinical
+## Result
+
+This research demonstrates that for small, specialized clinical
 datasets, statistical generative models (like Gaussian Copula) are far more
 effective than complex deep learning approaches. We found that synthetic data
 serves as a powerful 'digital stabilizer'—when used to augment real records, it
