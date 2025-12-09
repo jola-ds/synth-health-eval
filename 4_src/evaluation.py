@@ -190,10 +190,11 @@ def run_master_loop(
 
 if __name__ == "__main__":
     import os
+
     # Define paths relative to script location
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(script_dir, ".."))
-    
+
     data_path = os.path.join(project_root, "1_datasets", "imputed_data.csv")
     output_path = os.path.join(project_root, "results_master_loop_params.csv")
     params_path = os.path.join(project_root, "results_params.csv")

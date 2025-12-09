@@ -72,9 +72,10 @@ def calculate_dcr(real_data, synthetic_data):
 
 if __name__ == "__main__":
     import os
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(script_dir, ".."))
-    
+
     # Sanity Check Script
     print("Loading data...")
     # Load the MICE-imputed data we just created

@@ -137,6 +137,7 @@ external dataset from a different clinic to prove true generalization.
 
 ## 📂 Repository Structure
 
+<!-- markdownlint-disable MD013 -->
 | Directory / File | Description |
 | :--- | :--- |
 | **[`1_datasets/`](1_datasets/)** | Raw and imputed data, Data Overview & Preprocessing report. |
@@ -147,6 +148,7 @@ external dataset from a different clinic to prove true generalization.
 | **[`3_notebooks/`](3_notebooks/)** | Interactive Jupyter notebooks for exploration. |
 | ├── [`01_preprocessing.ipynb`](3_notebooks/01_preprocessing.ipynb) | Data preprocessing pipeline. |
 | **[`4_src/`](4_src/)** | Python source code modules (`generation.py`, `evaluation.py`, etc.). |
+<!-- markdownlint-enable MD013 -->
 
 ## Collaborators
 
