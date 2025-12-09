@@ -63,13 +63,15 @@ characteristic of paper-based records in resource-constrained settings.
 
 ### 1. Distribution (Encoded Data)
 
-*Summary statistics of the encoded data (with missing values).*
+*Summary statistics of the encoded data (features with missing values).*
 
-| Statistic | Age | Weight (kg) | Systolic BP | Diastolic BP | Pulse | (!!! add height)
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mean** | 68.7 | 60.6 | 142.9 | 84.9 | 82.4 |
-| **Std Dev** | 8.1 | 11.7 | 26.7 | 13.5 | 12.4 |
-| **Min/Max** | 46-85 | 36-92 | 85-236 | 56-122 | 52-124 |
+<!-- markdownlint-disable MD013 -->
+| Statistic | Age | Weight (kg) | Height (m) | Systolic BP | Diastolic BP | Pulse |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Mean** | 68.7 | 60.6 | 1.6 | 142.9 | 84.9 | 82.4 |
+| **Std Dev** | 8.1 | 11.7 | 0.1 | 26.7 | 13.5 | 12.4 |
+| **Min/Max** | 46-85 | 36-92 | 1.40-1.80 | 85-236 | 56-122 | 52-124 |
+<!-- markdownlint-enable MD013 -->
 
 **Class Balance:** The dataset is fairly balanced with **53% Controls** (No
 Hypertension) and **47% Cases** (Hypertension).
@@ -86,11 +88,11 @@ Hypertension) and **47% Cases** (Hypertension).
 
 *Summary statistics of the final cleaned data used for generation.*
 
-| Statistic | Age | Weight | Systolic BP | Diastolic BP | Pulse | (!!! add height)
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mean** | 68.7 | 60.6 | 142.9 | 84.9 | 82.4 |
-| **Std Dev** | 8.1 | 11.7 | 26.7 | 13.5 | 12.4 |
-| **Min/Max** | 46-85 | 36-92 | 85-236 | 56-122 | 52-124 |
+| Statistic | Age | Weight | Height (m) | Systolic BP | Diastolic BP | Pulse |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Mean** | 68.7 | 60.6 | 1.6 | 142.9 | 84.9 | 82.4 |
+| **Std Dev** | 8.1 | 11.7 | 0.1 | 26.7 | 13.5 | 12.4 |
+| **Min/Max** | 46-85 | 36-92 | 1.40-1.80 | 85-236 | 56-122 | 52-124 |
 
 **Density Plots (Imputed Variables):**
 ![Density Plots](images/density_plots_imputed.png)
