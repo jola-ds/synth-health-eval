@@ -44,10 +44,11 @@ def summarize_results(input_path, output_path):
 
 
 if __name__ == "__main__":
-    # Define paths relative to project root or absolute
-    base_dir = (
-        "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/4_data_analysis/results"
-    )
+    # Define paths relative to script location
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Go up one level to root, then into 2_data_analysis/results
+    base_dir = os.path.join(script_dir, "..", "2_data_analysis", "results")
+    base_dir = os.path.abspath(base_dir)
 
     # 1. Process Gaussian Copula
     summarize_results(

@@ -9,17 +9,22 @@ synthetic data evaluation.
 
 * **[Methodology](methodology.md):** Detailed explanation of the data pipeline,
 imputation strategy, generator selection, and evaluation metrics.
-* **[Analysis Report](analysis_report.md):** The final findings, including
-performance tables, head-to-head comparisons, and recommendations.
+* **[Analysis Report](analysis_report.md):** The final findings + interpretation,
+including performance tables, head-to-head comparisons, and recommendations.
 
 ### 2. Results
 
 * **[Results Directory](results/):** Contains all raw CSV output files from the
 evaluation loop and fidelity checks.
 
-## Key Findings Summary
+## Result Summary
 
-* **Best Generator:** Gaussian Copula (Statistical)
-* **Best Strategy:** Augmentation (50% Synthetic + 100% Real)
-* **Outcome:** Maintained baseline F1-Score (0.825) while adding data
-robustness. CTGAN failed to converge on this small dataset.
+*Performance of Random Forest with Gaussian Copula Augmentation.*
+
+<!-- markdownlint-disable MD013 -->
+| Scenario | Description | F1-Score | Accuracy | AUC | Verdict |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **A. Baseline** | Real Data Only | 0.826 | 0.842 | 0.898 | Gold Standard |
+| **B. Fidelity** | Synthetic Only | 0.727 | 0.744 | 0.812 | Good Approximation |
+| **D. Augment** | Real + 50% Syn | **0.825** | **0.841** | **0.891** |**Matches Baseline**|
+<!-- markdownlint-enable MD013 -->

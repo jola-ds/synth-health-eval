@@ -2,10 +2,25 @@
 
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-**Can synthetic data solve the "Small Data" problem in healthcare?**
-This project evaluates the utility, fidelity, and privacy of synthetic data
-generated from a small (N=134) real-world clinical dataset of geriatric patients
-in Ibadan, Nigeria.
+## Research Question
+
+Can synthetic data generated from a tiny clinical seed dataset support useful
+and safe modelling?**
+
+**Objectives:** To evaluate the utility, fidelity, and privacy of synthetic
+data generated from a small (N=134) real-world clinical dataset of geriatric
+patients in Ibadan, Nigeria.
+
+## Result
+
+This research demonstrates that for small, specialized clinical
+datasets, statistical generative models (like Gaussian Copula) are far more
+effective than complex deep learning approaches. We found that synthetic data
+serves as a powerful 'digital stabilizer'—when used to augment real records, it
+preserves the predictive power of the original data while ensuring patient
+privacy. This proves that synthetic data can effectively amplify
+under-represented African healthcare datasets, allowing us to build robust AI
+tools even in low-resource environments.
 
 ## Executive Summary
 
@@ -14,36 +29,22 @@ challenges of **Data Privacy** and **Data Scarcity** in healthcare. This project
 applies globally validated synthetic data frameworks to a specific, high-risk
 context: **Geriatric Hypertension Prediction in Nigeria**.
 
-### Global Context
+## Motivation
 
-During the COVID-19 pandemic, the **National COVID Cohort Collaborative (N3C)**
-proved that synthetic data is not just a theoretical concept—it is a lifesaver.
-By generating "digital twins" of patient cohorts, researchers bypassed strict
-privacy silos (GDPR/HIPAA) to accelerate pandemic response, enabling rapid
-cross-institutional research without exposing sensitive patient records.
-
-### 🇳🇬 Local Need
-
-Sub-Saharan Africa bears 25% of the global disease burden but contributes
-minimal data to global AI models, leading to algorithmic bias. In geriatric
-healthcare, datasets are often fragmented, paper-based, and too small for modern
-AI. This project addresses the **"Cold Start" problem** for African AI,
-demonstrating how we can ethically augment a small dataset ($N=134$) into a
-robust resource for hypertension prediction without compromising patient privacy
+In Nigeria healthcare datasets are often fragmented, paper-based, and too small
+for modern AI. This project addresses the **"Cold Start" problem** for African
+AI, demonstrating how we can ethically augment a small dataset ($N=134$) into a
+resource for hypertension prediction without compromising patient privacy
 or sovereignty.
 
-This project demonstrates how synthetic generation serves as an **Equity
-Tool**, allowing Nigerian researchers to build robust, locally relevant AI
-models despite infrastructural constraints.
-
-> **Note:** *For a full picture of the synthetic data landscape in healthcare,
-read the full [Literature Review & Background](0_domain_study/README.md)*
+> **Note:** *For a detailed look into the synthetic data landscape in
+healthcare, read the full [Literature Review & Background](0_domain_study/README.md)*
 
 ---
 
 ## Analysis Approach
 
-Our methodology followed a strict four-phase pipeline:
+Our methodology followed a strict five-phase pipeline:
 
 1. **Imputation Shootout:** We compared MICE, KNN, and MissForest to handle
 missing values. **MICE** won with the lowest distribution shift.
@@ -51,8 +52,11 @@ missing values. **MICE** won with the lowest distribution shift.
 2. **Generator Screening:** We trained and compared Gaussian Copula
 (Statistical) and CTGAN (Deep Learning).
 
+3. **Privacy Check:** We performed a Distance to Closest Record (DCR)
+privacy audit
+
 <!-- markdownlint-disable MD029 -->
-3. **The "Master Loop":** We ran a **Repeated Stratified K-Fold Cross-Validation
+4. **Utility Evaluation:** We ran a **Repeated Stratified K-Fold Cross-Validation
 (5x5)** to evaluate models under four scenarios:
 
 * *Scenario A (Baseline):* Train Real, Test Real.
@@ -60,20 +64,22 @@ missing values. **MICE** won with the lowest distribution shift.
 * *Scenario C (Scale):* Train Large Synthetic, Test Real.
 * *Scenario D (Augment):* Train Real + Synthetic, Test Real.
 
-4. **Fidelity Audit:** We used KS Tests, Correlation Matrices, and Adversarial
+5. **Fidelity Audit:** We used KS Tests, Correlation Matrices, and Adversarial
 AUC to quantify the statistical quality of the synthetic data.
 <!-- markdownlint-enable MD029 -->
 
-> **Note:** *For a full picture of our methodology , read the full [Analysis
+![Top Predictors](images/shap_summary_bar.png)
+
+> **Note:** *Read the full [Analysis
 Approach](2_data_analysis/methodology.md).*
 
 ---
 
 ## Research Conclusions
 
-**1. Augmentation Works (The "Sweet Spot"):**
+**1. Augmentation Maintained Utility:**
 Augmenting the small real dataset with **50% synthetic data** generated by a
-**Gaussian Copula** model maintained the baseline F1-Score (**0.825** vs 0.826)
+**Gaussian Copula** model maintained the baseline F1-Score (0.826)
 while potentially increasing model robustness. This was the optimal strategy.
 
 **2. Statistical Models Beat Deep Learning:**
@@ -88,7 +94,20 @@ significantly outperformed the deep learning-based **CTGAN**.
 Both generators successfully passed the Distance to Closest Record (DCR)
 privacy audit, ensuring no real patient records were memorized or leaked.
 
-> **Note:** *For a better picture of our findings, read the full [Analysis
+**4. Fidelity is Maintained:**
+The copula-generated synthetic data preserved 92% of univariate distributions
+and 89% of correlation structures, while remaining realistically
+indistinguishable from real patient records (Adversarial AUC 0.64).
+
+<!-- markdownlint-disable MD013 -->
+| Scenario | Description | F1-Score | Accuracy | AUC | Verdict |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **A. Baseline** | Real Data Only | 0.826 | 0.842 | 0.898 | Gold Standard |
+| **B. Fidelity** | Synthetic Only | 0.727 | 0.744 | 0.812 | Good Approximation |
+| **D. Augment** | Real + 50% Syn | **0.825** | **0.841** | **0.891** |**Matches Baseline**|
+<!-- markdownlint-enable MD013 -->
+
+> **Note:** *Read the full [Analysis
 Report](2_data_analysis/analysis_report.md).*
 
 ---
@@ -120,17 +139,23 @@ external dataset from a different clinic to prove true generalization.
 
 ## 📂 Repository Structure
 
-* **`1_datasets/`**: Raw and imputed data, plus the Data Dictionary.
-* **`2_data_analysis/`**: The core findings.
-* `analysis_report.md`: Detailed performance tables and graphs.
-* `methodology.md`: Full technical explanation of the pipeline.
-* `results/`: Raw CSVs from the evaluation loop.
-* **`3_notebooks/`**: Interactive Jupyter notebooks for exploration.
-* `01_preprocessing.ipynb`: Data cleaning and imputation.
-* `02_screening.ipynb`: Visual comparison of generators.
-* `03_evaluation.ipynb`: The Master Loop execution.
-* **`4_src/`**: Python source code modules (`generation.py`, `evaluation.py`,
-etc.).
+<!-- markdownlint-disable MD013 -->
+| Directory / File | Description |
+| :--- | :--- |
+| **[`1_datasets/`](1_datasets/)** | Raw and imputed data, Data Overview & Preprocessing report. |
+| **[`2_data_analysis/`](2_data_analysis/)** | The core methodology + Findings. |
+| ├── [`analysis_report.md`](2_data_analysis/analysis_report.md) | Detailed analysis report. |
+| ├── [`methodology.md`](2_data_analysis/methodology.md) | Full technical explanation of the pipeline. |
+| └── [`results/`](2_data_analysis/results/) | Raw CSVs from the evaluation loop. |
+| **[`3_notebooks/`](3_notebooks/)** | Interactive Jupyter notebooks for exploration. |
+| ├── [`01_preprocessing.ipynb`](3_notebooks/01_preprocessing.ipynb) | Data preprocessing pipeline. |
+| **[`4_src/`](4_src/)** | Python source code modules (`generation.py`, `evaluation.py`, etc.). |
+<!-- markdownlint-enable MD013 -->
+
+## Collaborators
+
+* Muqadsa Tahir
+* Martha Yeladame Nyekanga
 
 ---
 
@@ -162,11 +187,9 @@ etc.).
 
 ### 1. Reproduce the Analysis
 
-Run the notebooks in order to replicate the full pipeline:
+Run the notebooks:
 
 1. **Preprocessing:** `jupyter notebook 3_notebooks/01_preprocessing.ipynb`
-2. **Screening:** `jupyter notebook 3_notebooks/02_screening.ipynb`
-3. **Evaluation:** `jupyter notebook 3_notebooks/03_evaluation.ipynb`
 
 ### 2. Generate Synthetic Data
 

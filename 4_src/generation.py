@@ -71,12 +71,16 @@ def calculate_dcr(real_data, synthetic_data):
 
 
 if __name__ == "__main__":
+    import os
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, ".."))
+
     # Sanity Check Script
     print("Loading data...")
     # Load the MICE-imputed data we just created
-    df = pd.read_csv(
-        "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/1_datasets/imputed_data.csv"
-    )
+    data_path = os.path.join(project_root, "1_datasets", "imputed_data.csv")
+    df = pd.read_csv(data_path)
 
     print(f"Training CTGAN on {len(df)} rows...")
     model = train_generator(df, model_type="ctgan")
@@ -98,6 +102,6 @@ if __name__ == "__main__":
         print("Privacy Check: PASSED (No exact matches found)")
 
     # Save a sample
-    output_path = "c:/Users/Moses Omotunde/Documents/Me/synth-health-eval/1_datasets/synthetic_sample_ctgan.csv"
+    output_path = os.path.join(project_root, "1_datasets", "synthetic_sample_ctgan.csv")
     syn_data.to_csv(output_path, index=False)
     print(f"Sample synthetic data saved to: {output_path}")
