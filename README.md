@@ -29,7 +29,7 @@ challenges of **Data Privacy** and **Data Scarcity** in healthcare. This project
 applies globally validated synthetic data frameworks to a specific, high-risk
 context: **Geriatric Hypertension Prediction in Nigeria**.
 
-### Motivation
+## Motivation
 
 In Nigeria healthcare datasets are often fragmented, paper-based, and too small
 for modern AI. This project addresses the **"Cold Start" problem** for African
