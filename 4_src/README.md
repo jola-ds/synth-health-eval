@@ -15,7 +15,8 @@ the best method.
 
 * **`generation.py`**: Defines the `GeneratorWrapper` class. This provides a
 unified interface for different synthetic data generators (Gaussian Copula,
-CTGAN), handling training, sampling, and persistence.
+CTGAN), handling training, sampling, and persistence. It
+also includes the DCR privacy check.
 
 ### 3. Evaluation & Analysis
 
