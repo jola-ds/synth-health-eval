@@ -5,7 +5,7 @@
 ## Research Question
 
 Can synthetic data generated from a tiny clinical seed dataset support useful
-and safe modelling?**
+and safe modelling?
 
 **Objectives:** To evaluate the utility, fidelity, and privacy of synthetic
 data generated from a small (N=134) real-world clinical dataset of geriatric
@@ -37,8 +37,7 @@ AI, demonstrating how we can ethically augment a small dataset ($N=134$) into a
 resource for hypertension prediction without compromising patient privacy
 or sovereignty.
 
-> **Note:** *For a detailed look into the synthetic data landscape in
-healthcare, read the full [Literature Review & Background](0_domain_study/README.md)*
+> [**Read the Literature Review & Background**](0_domain_study/README.md)
 
 ---
 
@@ -70,8 +69,7 @@ AUC to quantify the statistical quality of the synthetic data.
 
 ![Top Predictors](/2_data_analysis/images/shap_summary_bar.png)
 
-> **Note:** *Read the full [Analysis
-Approach](2_data_analysis/methodology.md).*
+> [*Read the full Methodology*](2_data_analysis/methodology.md).
 
 ---
 
@@ -99,6 +97,16 @@ The copula-generated synthetic data preserved 92% of univariate distributions
 and 89% of correlation structures, while remaining realistically
 indistinguishable from real patient records (Adversarial AUC 0.64).
 
+**5. Limits of Synthetic Scaling:**
+Contrary to the intuition that "more data is better," we found that:
+
+* Aggressive augmentation (>100% synthetic data) degraded performance by
+diluting the true signal.
+* Training solely on synthetic data (1:1) yielded lower predictive power than
+the baseline.
+* Generating a larger dataset (e.g., N=1000) from this small seed did not
+improve performance.
+
 <!-- markdownlint-disable MD013 -->
 | Scenario | Description | F1-Score | Accuracy | AUC | Verdict |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -107,8 +115,7 @@ indistinguishable from real patient records (Adversarial AUC 0.64).
 | **D. Augment** | Real + 50% Syn | **0.825** | **0.841** | **0.891** |**Matches Baseline**|
 <!-- markdownlint-enable MD013 -->
 
-> **Note:** *Read the full [Analysis
-Report](2_data_analysis/analysis_report.md).*
+> [*Read the full Analysis Report*](2_data_analysis/analysis_report.md).
 
 ---
 
@@ -122,6 +129,9 @@ train.
 converged GAN could capture if more data were available.
 * **Generalizability:** Findings are specific to this geriatric hypertension
 dataset and may not transfer 1:1 to other domains (e.g., imaging).
+
+> **Project Context:** Due to significant challenges, the project timeline
+was compressed, delivering a two-month research scope in under four weeks.
 
 ---
 
@@ -152,11 +162,6 @@ external dataset from a different clinic to prove true generalization.
 | **[`4_src/`](4_src/)** | Python source code modules (`generation.py`, `evaluation.py`, etc.). |
 <!-- markdownlint-enable MD013 -->
 
-## Collaborators
-
-* Muqadsa Tahir
-* Martha Yeladame Nyekanga
-
 ---
 
 ## Getting Started
@@ -183,32 +188,30 @@ external dataset from a different clinic to prove true generalization.
 
 ---
 
-## Usage
+## Usage Guide (Reproduce the Analysis)
 
-### 1. Reproduce the Analysis
+To replicate these findings, run the pipeline in the following order:
 
-Run the notebooks:
+1. **Preprocessing:** Clean and encode the data.
+    * *Script:* `3_notebooks/01_preprocessing.ipynb` (Interactive)
+    * *Output:* `1_datasets/encoded_data.csv`
 
-1. **Preprocessing:** `jupyter notebook 3_notebooks/01_preprocessing.ipynb`
+2. **Imputation:** Fill missing values using the Hybrid Strategy
+(MICE + Stratified Median).
+    * *Command:* `python 4_src/imputation.py`
+    * *Output:* `1_datasets/imputed_data.csv`
 
-### 2. Generate Synthetic Data
+3. **Generation:** Train models (Copula/CTGAN) and generate synthetic cohorts.
+    * *Command:* `python 4_src/generation.py`
+    * *Output:* `1_datasets/synthetic_sample/`
 
-Use the core modules directly:
+4. **Evaluation:** Run the TRTR-TSTR utility benchmark.
+    * *Command:* `python 4_src/evaluation.py`
+    * *Output:* `2_data_analysis/results/master_loop_results.csv`
 
-```python
-from src.generation import GeneratorWrapper
-import pandas as pd
-
-# Load Data
-
-data = pd.read_csv("1_datasets/imputed_data.csv")
-
-# Train & Sample
-
-gen = GeneratorWrapper(model_type='copula')
-gen.fit(data)
-synthetic_data = gen.sample(100)
-```
+5. **Fidelity:** Run the Fidelity Audit.
+    * *Command:* `python 4_src/fidelity.py`
+    * *Output:* `2_data_analysis/results/fidelity_results.csv`
 
 ---
 

@@ -44,6 +44,7 @@ The following variables are present in the processed dataset.
 | `systolic_bp` | Float | mmHg | Systolic Blood Pressure |
 | `diastolic_bp` | Float | mmHg | Diastolic Blood Pressure |
 | `history_hypertension` | Categorical | -1/0/1 | History of Hypertension (1=Yes, 0=No, -1=Missing) |
+| `gender` | Categorical | m/f | Patient Gender |
 | `age` | Integer | Years | Patient Age |
 | `weight_kg` | Float | kg | Weight |
 | `height_m` | Float | m | Height |
@@ -52,7 +53,7 @@ The following variables are present in the processed dataset.
 <!-- markdownlint-enable MD013 -->
 
 > *Note: Full details on encoding (e.g., 0=No, 1=Yes) can be found in the
-[preprocessing notebook](../notebooks/01_preprocessing.ipynb).*
+[preprocessing notebook](..\3_notebooks\01_preprocessing.ipynb).*
 
 ---
 
@@ -68,13 +69,14 @@ characteristic of paper-based records in resource-constrained settings.
 <!-- markdownlint-disable MD013 -->
 | Statistic | Age | Weight (kg) | Height (m) | Systolic BP | Diastolic BP | Pulse |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mean** | 68.7 | 60.6 | 1.6 | 142.9 | 84.9 | 82.4 |
-| **Std Dev** | 8.1 | 11.7 | 0.1 | 26.7 | 13.5 | 12.4 |
+| **Mean** | 68.7 | 60.5 | 1.6 | 142.9 | 84.9 | 82.3 |
+| **Std Dev** | 8.1 | 14.1 | 0.1 | 26.7 | 13.5 | 13.2 |
 | **Min/Max** | 46-85 | 36-92 | 1.40-1.80 | 85-236 | 56-122 | 52-124 |
-<!-- markdownlint-enable MD013 -->
 
 **Class Balance:** The dataset is fairly balanced with **53% Controls** (No
 Hypertension) and **47% Cases** (Hypertension).
+
+![Class Balance Chart](images/class_balance.png)
 
 ### 2. Missingness Profile (Encoded Data)
 
@@ -82,7 +84,7 @@ Hypertension) and **47% Cases** (Hypertension).
 
 ![Missingness Bar Chart](images/missingno_bar_missing_only.png)
 
-* *Note the high missingness in History (~60%) and Weight (~30%).*
+* *Note the high missingness in Height and Weight.*
 
 ### 3. Distribution (Imputed Data)
 
@@ -101,19 +103,20 @@ Hypertension) and **47% Cases** (Hypertension).
 
 ### 4. Outlier Analysis
 
-An IQR-based outlier analysis was conducted on the imputed dataset:
+Comparison of an IQR-based outlier analysis before and after imputation:
 
-* **Systolic BP:** 1 outlier (236 mmHg).
-* **Weight:** 12 outliers (Min 36kg).
-* **Pulse:** 6 outliers (Max 124 bpm).
-
-**Decision:** All outliers were retained. In a geriatric cohort, these extreme
-values (e.g., very low weight) often represent **frail elderly patients** or
-those in **hypertensive crisis**, rather than data errors. Removing them would
-bias the model against the very high-risk groups we aim to protect.
+| Feature | Outliers (Raw Data) | Outliers (Imputed Data) | Interpretation |
+| :--- | :--- | :--- | :--- |
+| **Systolic BP** | 1 | 1 | Consistent |
+| **Weight** | 0 | 12 | +12 (Unmasked by Imputation) |
+| **Height** | 0 | 13 | +13 (Unmasked by Imputation) |
+| **Pulse** | 1 | 6 | +5 (Unmasked by Imputation) |
 
 **Outlier Boxplots:**
-![Outlier Boxplots](images/outlier_boxplots.png)
+![Outlier Boxplots - Imputed Data](images/outlier_boxplots.png)
+
+**Decision:**
+All outliers were retained. Imputation did not create artificial errors; instead, it **stabilized the distribution** (reducing noise/variance). This "tightened" the statistical definition of normality, allowing previously borderline clinical extremes—such as **severe frailty** (low weight) or **hypertensive crisis**—to be correctly identified as outliers. Removing them would bias the model against the very high-risk patients we aim to protect.
 
 ---
 
@@ -136,14 +139,14 @@ dataset's structure.
 * **Age vs BP:** Slight upward trend, consistent with geriatric physiology.
 * **Age vs Weight:** No strong linear relationship.
 
-#### Physical Metrics, Vitals
+#### Physical Metrics & Vitals
 
-| Weight vs. Height | Pulse vs. BP |
+| Weight vs. Height | Pulse vs. Systolic BP |
 | :---: | :---: |
-| ![Weight vs Height](images/weight_vs_height.png) | ![Pulse vs BP](images/pulse_vs_systolic.png) |
+| ![Weight vs Height](images/weight_vs_height.png) | ![Pulse vs Systolic BP](images/pulse_vs_systolic.png) |
 
 * **Weight vs Height:** Positive correlation as expected.
-* **Pulse vs BP:** Weak correlation.
+* **Pulse vs Systolic BP:** Weak correlation.
 
 #### Gender Distribution
 
@@ -165,32 +168,28 @@ extremely high (or low) blood pressure compared to women in this cohort.
 
 ### 1. Preprocessing & Exploration
 
-Extensive cleaning was performed to handle the unstructured nature of the
-source text.
+Extensive cleaning was performed to handle the unstructured nature of the source text.
 
-* **Notebook:**
-[notebooks/01_preprocessing_and_imputation.ipynb](../notebooks/01_preprocessing_and_imputation.ipynb)
-* **Process:**
-* **Dropped Columns:** Removed irrelevant columns (e.g., Rapid Diagnostic
-Tests) not needed for the study.
-* **Standardized Columns:** Standardized categorical columns (e.g., Gender).
-* **Splitting BP:** Split blood pressure into two separate variables:
-`systolic_bp` and `diastolic_bp`.
-* **Encoded Columns:** Encoded categorical variables (e.g., History: Present=1,
-Absent=0, Missing=-1).
-* **Outlier Detection:** IQR-based analysis.
+* **Notebook:** [01_preprocessing.ipynb](../3_notebooks/01_preprocessing.ipynb)
+* **Key Steps:**
+    1. **Column Selection:** Removed irrelevant administrative columns (e.g., *Rapid Diagnostic Tests*).
+    2. **Standardization:** Normalized categorical labels (e.g., standardizing Gender formats) and split composite Blood Pressure strings into separate `systolic_bp` and `diastolic_bp` features.
+    3. **Encoding:** Converted clinical history to numerical flags (Present=1, Absent=0, Missing=-1).
+    4. **Outlier Analysis:** Imputation was used to stabilize the distribution, effectively "unmasking" valid clinical outliers (e.g., low weight in extensive frailty) that were previously within normal ranges.
 
 ### 2. Imputation Strategy
 
-Given the high missingness, simple deletion was impossible. We benchmarked
-multiple imputation techniques (MICE, KNN, MissForest).
+Given the high missingness, simple deletion was impossible. We used a hybrid approach:
 
-* **Conditional Imputation:** Logic was applied to ensure imputed Systolic BP
-was always greater than Diastolic BP. (!!!need to confirm this)
-* **Selected Method:** **MICE (Multivariate Imputation by Chained Equations)**
-was chosen for its ability to preserve non-linear variance in geriatric data.
-(!!! might need to add full imputation shootout method)
-* **Imputed Variables:** Age, Pulse, Height, Weight, Systolic BP, Diastolic BP.
+* **Stratified Median Imputation (BP):** Blood pressure values were imputed using
+the median of their respective class (Hypertensive vs Non-Hypertensive). This preserved the distinct separation required for the target variable.
+
+* **MICE (Demographics & Vitals):** **Multivariate Imputation by Chained Equations (MICE)** was used
+for `Age`, `Weight`, `Height`, and `Pulse`. This method was chosen for its ability to preserve
+non-linear variances and biological correlations (e.g., relation between BMI and Age) in geriatric
+data.
+
+> **Note:** For the full benchmark of imputation techniques (MICE vs KNN vs MissForest), see the [**Methodology**](../2_data_analysis/methodology.md).
 
 ### 3. Feature Engineering
 
@@ -204,7 +203,7 @@ $$BMI = \frac{Weight (kg)}{Height (m)^2}$$
 imputation to ensure all features contributed equally to the model.
 
 For the full preprocessing pipeline, see
-[**Notebook**](../notebooks/01_preprocessing_and_imputation.ipynb).
+[**Cleaning**](../3_notebooks/01_preprocessing.ipynb) & [**Imputation**](../4_src/imputation.py).
 
 ---
 
@@ -217,3 +216,6 @@ values).
 `NaN` values).
 * **`synthetic_sample/`**: The augmented datasets generated by Gaussian copula
 and CTGAN models.
+
+[**READ THE FULL METHODOLOGY**](../2_data_analysis/methodology.md)
+<!-- markdownlint-enable MD013 -->
