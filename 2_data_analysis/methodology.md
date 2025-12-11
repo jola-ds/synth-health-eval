@@ -75,7 +75,7 @@ Generators evaluated:
 
 ### Privacy
 
-Before any data was used for evaluation, it passed a **Privacy Check**:
+Before any data was used for evaluation, it passed a **Privacy Check** in [**Generation.py**](../4_src/generation.py):
 
 * **Metric:** Distance to Closest Record (DCR).
 * **Threshold:** Min DCR > 0.01 (Ensures no exact matches/memorization).
