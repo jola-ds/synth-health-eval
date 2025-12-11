@@ -80,7 +80,7 @@ Hypertension) and **47% Cases** (Hypertension).
 
 *Visualizing the sparsity of the original $N=134$ records.*
 
-![Missingness Bar Chart](images/missingno_chart.png)
+![Missingness Bar Chart](images/missingno_bar_missing_only.png)
 
 * *Note the high missingness in History (~60%) and Weight (~30%).*
 

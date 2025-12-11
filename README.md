@@ -68,7 +68,7 @@ privacy audit
 AUC to quantify the statistical quality of the synthetic data.
 <!-- markdownlint-enable MD029 -->
 
-![Top Predictors](images/shap_summary_bar.png)
+![Top Predictors](/2_data_analysis/images/shap_summary_bar.png)
 
 > **Note:** *Read the full [Analysis
 Approach](2_data_analysis/methodology.md).*
