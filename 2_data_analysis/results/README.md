@@ -38,9 +38,9 @@ Random Forest model.
 
 ## Usage
 
-These CSVs are referenced by the `analysis_report.md` and
-`methodology_report.md` to substantiate the findings. You can load them into
-pandas for further custom analysis:
+These CSVs are referenced by the [analysis_report.md](../analysis_report.md) and
+[methodology_report.md](../methodology_report.md) to substantiate the findings.
+You can load them into pandas for further custom analysis:
 
 ```python
 import pandas as pd
