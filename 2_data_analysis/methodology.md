@@ -104,6 +104,22 @@ implemented a **Repeated Stratified K-Fold Cross-Validation** loop:
 * **Repeats:** 5 Times.
 * **Total Runs:** 25 per model per scenario.
 
+### Model Selection & Tuning
+
+To ensure robustness, we did not rely on a single algorithm. We trained and tuned
+four distinct classifiers using **RandomizedSearchCV**:
+
+1. **Random Forest (RF):** Comparison of tree depth and estimators.
+2. **XGBoost (XGB):** Gradient boosting with learning rate tuning.
+3. **Logistic Regression (LR):** Linear baseline with regularization.
+4. **K-Nearest Neighbors (KNN):** Distance-based baseline.
+
+**Tuning Protocol:**
+
+* **Search:** Randomized Search (5 Iterations).
+* **Inner validation:** 3-Fold Cross-Validation.
+* **Optimization Metric:** F1-Score.
+
 ### TRTR-TSTR
 
 For each fold, we trained models under four distinct scenarios:
@@ -122,7 +138,7 @@ in healthcare where missing a diagnosis is dangerous.
 * **C. AUC:** A measure of the model's ability to distinguish between classes, i.e
 hypertensive or not.
 
-**Winner:** Gaussian Copula
+**Winner:** Random Forest with Gaussian Copula
 
 ### 3.2 Statistical Fidelity
 
