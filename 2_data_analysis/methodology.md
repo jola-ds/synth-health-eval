@@ -45,7 +45,10 @@ impact on a downstream Random Forest classifier.
 
 Winner: **MICE (`IterativeImputer`)**
 
+**Density plots of imputed features**
 ![Density Plots](../1_datasets/images/density_plots_imputed.png)
+
+> [**See Full Implementation**](../4_src/imputation.py)
 
 ---
 
@@ -56,7 +59,8 @@ statistical properties of the real data.
 
 ### The `GeneratorWrapper`
 
-We implemented a flexible `GeneratorWrapper` class in `src/generation.py` to
+We implemented a flexible `GeneratorWrapper` class in [**Generation.py**](../4_src/
+generation.py) to
 support multiple generator backends under a unified interface. This allowed for
 fair, side-by-side comparison.
 
@@ -85,13 +89,15 @@ Before any data was used for evaluation, it passed a **Privacy Check**:
 
 ## Phase 3: Evaluation
 
-**Objective:** Scientifically measure the quality (Privacy, Fidelity, Utility)
+**Objective:** Scientifically measure the quality
 of the synthetic data.
 
 ### 3.1 Utilitiy
 
-We performed a binary classification for hypertension using the `TRTR-TSTR`
-framework. To combat the high variance inherent in small datasets, we
+We compared the utility of the copula and CTGAN generated data
+by performing a binary classification for hypertension using the `TRTR-TSTR`
+framework on each dataset. To combat the high variance inherent
+in small datasets, we
 implemented a **Repeated Stratified K-Fold Cross-Validation** loop:
 
 * **Splits:** 5 Folds.
@@ -109,42 +115,39 @@ For each fold, we trained models under four distinct scenarios:
 
 **Metrics:**
 
-A. F1-Score: Primary metric because it balances Precision (avoiding false
+* **A. F1-Score:** Primary metric because it balances Precision (avoiding false
 alarms) and Recall (catching sick patients), which is critical
 in healthcare where missing a diagnosis is dangerous.
-B. Accuracy: Secondary metric. The percentage of correct predictions.
-C. AUC: A measure of the model's ability to distinguish between classes i.e
+* **B. Accuracy:** The percentage of correct predictions.
+* **C. AUC:** A measure of the model's ability to distinguish between classes, i.e
 hypertensive or not.
 
-### Pipeline
-
-For this specific project, the optimal pipeline is:
-
-1. **Impute** using MICE.
-2. **Generate** using Gaussian Copula.
-3. **Augment** the training set by 50% (Ratio 0.5) for the final predictive model.
+**Winner:** Gaussian Copula
 
 ### 3.2 Statistical Fidelity
 
 To complement the predictive utility tests, we performed a standalone statistical
-evaluation using a dedicated script (`src/fidelity.py`).
+evaluation using a dedicated script, [**Fidelity.py**](../4_src/fidelity.py).
 
 * **Data Source:** We trained the **Gaussian Copula** generator (the utility winner)
 on the **entire real dataset (N=134)**. We then generated a fresh synthetic
 dataset of identical size (N=134) for this comparison.
-  * *Note:* This differs from the "Master Loop" where we trained on subsets (folds).
+  * **Note:** This differs from the TRTR-TSTR Loop where we trained on subsets (folds).
 Here, we assess the champion model's capacity to learn the *full* distribution.
 
 * **Metrics & Interpretation:**
 
-1. **Univariate Fidelity (KS Test):** Kolmogorov-Smirnov Test on continuous
-variables (Age, BP, etc.).
+1. **Univariate Fidelity (KS Score):** Kolmogorov-Smirnov Test on continuous
+variables (Age, BP, etc.). Measures the
+shape overlap (**1.0** = Perfect Overlap, **0.0** = No Overlap).
 
-2. **Multivariate Fidelity (Correlation):** Frobenius Norm of the difference
-between Real and Synthetic correlation matrices.
+2. **Multivariate Fidelity (Correlation Diff):** Measures the distance between
+correlation matrices. Lower is better(closer to 0).
 
-3. **Adversarial Fidelity (Discriminator AUC):** A Random Forest classifier was
-trained to distinguish Real vs Synthetic records (5-Fold CV).
+3. **Adversarial Fidelity (Discriminator AUC)
+:** The score of a classifier trying to spot
+fakes. **0.5 is Perfect** (Machine is guessing). **> 0.7** means variables are
+leaking artifacts.
 
 ---
 
@@ -165,3 +168,13 @@ decrease risk?).
 * **Target:** The probability of **Hypertension = Yes**.
 * **Metric:** We analyzed both the mean absolute SHAP value (Global Importance)
 and the beeswarm plot (Local Explanation) to audit the decision logic.
+
+## Final Framework
+
+For this specific project, the optimal utility framework is:
+
+1. **Impute** using MICE.
+2. **Generate** using Gaussian Copula.
+3. **Augment** the training set by 50% (Ratio 0.5) for the final predictive model.
+
+[**FOR FULL RESULTS AND INTEPRETATION, READ THE ANALYSIS REPORT.**](analysis_report.md)
