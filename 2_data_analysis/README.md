@@ -10,11 +10,11 @@ synthetic data evaluation.
 * **[Methodology](methodology.md):** Detailed explanation of the data pipeline,
 imputation strategy, generator selection, and evaluation metrics.
 * **[Analysis Report](analysis_report.md):** The final findings + interpretation,
-including performance tables, head-to-head comparisons, and recommendations.
+including performance tables, visuals, head-to-head comparisons, and recommendations.
 
 ### 2. Results
 
-* **[Results Directory](results/):** Contains all raw CSV output files from the
+* **[Results Directory](results):** Contains all raw CSV output files from the
 evaluation loop and fidelity checks.
 
 ## Result Summary
